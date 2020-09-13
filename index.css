@@ -1,0 +1,164 @@
+* {
+    text-align: center;
+}
+@keyframes bouncing {
+    0% {bottom: 0; box-shadow: 0 0 rgba(0, 0, 0, 0.1); }
+    50% {bottom: 20px; box-shadow: 20px 20px rgb(0, 0, 0);}
+    100% {bottom: 50px; box-shadow: 50px 50px rgb(0, 0, 0);}
+}
+@keyframes bounce {
+    0% {bottom: 0;}
+    100% {bottom: 50px;}
+}
+span {
+    position: relative;
+}
+h1 {
+    margin: 70px 0 10px;
+    font-size: 4em;
+    position: relative;
+    animation: bounce 10s linear 0s infinite alternate both;
+    -webkit-animation: bounce 10s linear 0s infinite alternate both;
+}
+img {
+    margin: 50px 50px 0;
+    position: relative;
+    border: yellow 2px solid;
+    height: 500px;
+    width: 400px;
+    border-radius: 20px;
+    animation: bouncing 2s linear 0s infinite alternate both;
+    -webkit-animation: bouncing 2s linear 0s infinite alternate both;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.dis-img .img {
+    display: inline;
+}
+.dis-img {
+    border: yellow 5px solid;
+}
+.content{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.form-box{
+    width: 70%;
+    min-height: 100px;
+    position: relative;
+    margin: 2% auto;
+    background-color: #c0c0c0;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+#bd-msg {
+    margin: 20px auto;
+    border-radius: 30px;
+    width: 90%;
+    background: bisque;
+    padding-top: 20px;
+    font-size: 1.2em;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+button {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+button i{
+    color: green;
+}
+.red {
+    color: red;
+    animation: bounce 3s linear 1s infinite alternate both;
+    -webkit-animation: bounce 3s linear 1s infinite alternate both;
+}
+.blue {
+    color: blue;
+    animation: bounce 3s linear 3s infinite alternate both;
+    -webkit-animation: bounce 3s linear 3s infinite alternate both;
+}
+.yellow {
+    color: yellow;
+    animation: bounce 3s linear 2s infinite alternate both;
+    -webkit-animation: bounce 3s linear 2s infinite alternate both;
+}
+.green {
+    color: green;
+    animation: bounce 3s linear 4s infinite alternate both;
+    -webkit-animation: bounce 3s linear 4s infinite alternate both;
+}
+.color1 {
+    color: aqua;
+    animation: bounce 3s linear 5s infinite alternate both;
+    -webkit-animation: bounce 3s linear 5s infinite alternate both;
+}
+.color3 {
+    color: coral;
+    animation: bounce 3s linear 6s infinite alternate both;
+    -webkit-animation: bounce 3s linear 6s infinite alternate both;
+}
+.color4 {
+    color: darksalmon;
+    animation: bounce 3s linear 7s infinite alternate both;
+    -webkit-animation: bounce 3s linear 7s infinite alternate both;
+}
+.color5 {
+    color: firebrick;
+    animation: bounce 3s linear 8s infinite alternate both;
+    -webkit-animation: bounce 3s linear 8s infinite alternate both;
+}
+.color6 {
+    color: gold;
+    animation: bounce 3s linear 9s infinite alternate both;
+    -webkit-animation: bounce 3s linear 9s infinite alternate both;
+}
+.color7 {
+    color: hotpink;
+    animation: bounce 3s linear 10s infinite alternate both;
+    -webkit-animation: bounce 3s linear 10s infinite alternate both;
+}
+.color8 {
+    color: indigo;
+    animation: bounce 3s linear 11s infinite alternate both;
+    -webkit-animation: bounce 3s linear 11s infinite alternate both;
+}
+.color9 {
+    color: khaki;
+    animation: bounce 3s linear 12s infinite alternate both;
+    -webkit-animation: bounce 3s linear 12s infinite alternate both;
+}
+.color10 {
+    color: lawngreen;
+    animation: bounce 3s linear 13s infinite alternate both;
+    -webkit-animation: bounce 3s linear 13s infinite alternate both;
+}
+.color11 {
+    color: midnightblue;
+    animation: bounce 3s linear 14s infinite alternate both;
+    -webkit-animation: bounce 3s linear 14s infinite alternate both;
+}
+.color12 {
+    color: navy;
+    animation: bounce 3s linear 15s infinite alternate both;
+    -webkit-animation: bounce 3s linear 15s infinite alternate both;
+}
+.color13 {
+    color: orangered;
+    animation: bounce 3s linear 16s infinite alternate both;
+    -webkit-animation: bounce 3s linear 16s infinite alternate both;
+}
