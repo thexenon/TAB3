@@ -10,7 +10,7 @@
     0% {bottom: 0;}
     100% {bottom: 50px;}
 }
-span {
+h1 span {
     position: relative;
 }
 h1 {
@@ -161,4 +161,7 @@ button i{
     color: orangered;
     animation: bounce 3s linear 16s infinite alternate both;
     -webkit-animation: bounce 3s linear 16s infinite alternate both;
+}
+.conts {
+    display: inline;
 }
