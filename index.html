@@ -76,6 +76,7 @@
 				<button id="save-msg">Send your message <i class="fas fa-birthday-cake"></i></button>
 			</form>
 			</div>
+			<div class="result"></div>
 		</div>
 	</div><br><br><br>
 	<div id="msg-log"></div>
@@ -93,18 +94,21 @@
 	
 			var newPostRef = databaseRef.push();
 			//var newPostRef = firebase.firestore.collection("Blogs");
-	
-			newPostRef.set(blogData, function(err){
-							if (!err){
-								$("#result").attr("class", "alert alert-success");
-								$("#result").html("Message has been uploaded successfully...!");
-								$("#bd-wish")[0].reset();
-								
-							} else {
-								$("#result").attr("class", "alert alert-danger");
-								$("#result").html("An error occuried in the upload of your post...!");
-							}
-			});
+			if (msg != "") {
+				newPostRef.set(blogData, function(err){
+								if (!err){
+									$("#result").attr("class", "alert alert-success");
+									$("#result").html("Message has been uploaded successfully...!");
+									$("#bd-wish")[0].reset();
+									
+								} else {
+									$("#result").attr("class", "alert alert-danger");
+									$("#result").html("An error occuried in the upload of your post...!");
+								}
+				});
+			} else {
+				$("#result").html("Please write a message...!");
+			}
 		});
 	
 		
