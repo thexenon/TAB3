@@ -24,8 +24,8 @@ img {
     margin: 50px 50px 0;
     position: relative;
     border: yellow 2px solid;
-    height: 500px;
-    width: 400px;
+    height: 400px;
+    width: 300px;
     border-radius: 20px;
     animation: bouncing 2s linear 0s infinite alternate both;
     -webkit-animation: bouncing 2s linear 0s infinite alternate both;
