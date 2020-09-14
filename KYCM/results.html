@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TAB 3 - KYCM</title>
+	<title>TAB 3 - KYCM Anon. Qs</title>
 	<link rel="stylesheet" href="index.css">
 	<script src="https://kit.fontawesome.com/6401c6b42b.js" crossorigin="anonymous"></script>
 	
@@ -42,61 +42,19 @@
     <div class="brand">
         <h2>TAB 3 <br>Entertainment<br> Hub</h2>
         <img src="a0.jpg" alt="">
-    </div>
+    </div><br><br><hr><br><br>
 	<div>
 		<div class="content">
-			<div class="form-box">         
-			<form id="bd-wish" class="input-group">
-				<textarea id="bd-msg" cols="30" rows="5" placeholder="Write an anonymous message..."></textarea>
-				<div>
-					<button id="save-msg" type="button">Send your message <i class="fas fa-envelope"></i></button>
-				</div>
-			</form>
-			<div id="result"></div>
-			</div>
+			<div class="log-head">
+                <h2>All Messages</h2>
+            </div>
 		</div>
-	</div><br><br><br><br><hr><br><br><br>
-	<div>
-		<h2 class="survey">
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSetDcEG7TvylMQyQ9iXA61ZVYLq2POyvSLSMu_CkKXLqjq8ug/viewform?usp=sf_link" target="_blank">
-				Please Click Me To Give Your Views About KYCM
-				<i class="fas fa-hand-peace" style="padding: 0 10px;"></i>
-			</a>
-		</h2>
-	</div><br><br><br><hr><br>
+	</div><br><br><br><hr><br><br>
+	<div id="msg-log"></div>
 
 
 
 	<script>
-		$("#save-msg").click(function(){
-			var msg = $("#bd-msg").val()
-			var databaseRef = firebase.database().ref().child("Anonymous Messages");
-			var blogData = {
-				"anon": msg,
-				"count": count - 1,
-			};
-	
-			var newPostRef = databaseRef.push();
-			if (msg != "") {
-				newPostRef.set(blogData, function(err){
-								if (!err){
-									$("#result").attr("class", "alert alert-success");
-									$("#result").html("Message has been uploaded successfully...!");
-									$("#bd-wish")[0].reset();
-									
-								} else {
-									$("#result").attr("class", "alert alert-danger");
-									$("#result").html("An error occuried in the upload of your post...!");
-								}
-				});
-			} else {
-				$("#result").html("Please write a message...!");
-			}
-		});
-	
-		
-	
-	
 		var dbBlogs = firebase.database().ref().child("Anonymous Messages").orderByChild("count");
 		dbBlogs.on("value", function(blogs){
 			if (blogs.exists()){
@@ -110,6 +68,7 @@
 						blogsHtml += "</p>"
 					blogsHtml += "</div>"
 					
+					$("#msg-log").html(blogsHtml);
 				});
 	
 				
