@@ -141,13 +141,15 @@
             }
 
 
+            var dateStr = new Date().getTime();
+            var numberStr = 10000000000000 - dateStr
             var databaseRef = firebase.database().ref().child("Home Posts");
             databaseRef.once("value").then(function() {
                 var name = picture["name"];
                 var dateStr = new Date().getTime();
                 var fileCompleteName = name + "_" + dateStr;
 
-                var storageRef = firebase.storage().ref("JAK Image");
+                var storageRef = firebase.storage().ref("Post Image");
                 var blogStorageRef = storageRef.child(fileCompleteName);
 
                 var uploadTask = blogStorageRef.put(picture);
@@ -180,10 +182,10 @@
                                     hours12: true
                                 }),
                                 "date": time.toLocaleDateString('en-US', option),
-                                "count": 100000000000000000000000000000 - dateStr,
+                                "count": 10000000000000 - dateStr,
                             };
 
-                            var newPostRef = databaseRef.push();
+                            var newPostRef = databaseRef.child(numberStr);
                             //var newPostRef = firebase.firestore.collection("Blogs");
 
                             newPostRef.set(blogData, function(err) {
@@ -196,7 +198,7 @@
                                     $("#upload-progress").html("Completed...!");
 
                                     window.location.assign("index.html");
-                                    mjscjsi
+
 
                                 } else {
                                     $("#result").attr("class", "alert alert-danger");
