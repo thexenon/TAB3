@@ -11,7 +11,7 @@
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Posts Upload Page</title>
+    <title>Market Upload Page</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -60,7 +60,14 @@
                     <input id="main-subtitle" rows="4" placeholder="Post Sub Title..." class="form-control">
 
                     <div class="invalid-feedback">
-                        Write a Post Title.
+                        Write a Post SubTitle.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="main-midtitle" rows="4" placeholder="Person's Contact'..." class="form-control">
+
+                    <div class="invalid-feedback">
+                        Write Person's Contact.
                     </div>
                 </div>
                 <div class="form-group">
@@ -115,15 +122,21 @@
         $("#save-blog").click(function() {
             $("#main-desc").removeClass("is-invalid");
             $("#main-title").removeClass("is-invalid");
+            $("#main-midtitle").removeClass("is-invalid");
             $("#main-subtitle").removeClass("is-invalid");
             $("#main-image").removeClass("is-invalid");
 
             var desc = $("#main-desc").val();
             var title = $("#main-title").val();
+            var midtitle = $("#main-midtitle").val();
             var subtitle = $("#main-subtitle").val();
             var picture = $("#main-image").prop("files")[0];
 
             if (!title) {
+                $("#main-title").addClass("is-invalid");
+                return;
+            }
+            if (!midtitle) {
                 $("#main-title").addClass("is-invalid");
                 return;
             }
@@ -147,13 +160,13 @@
 
             var dateStr = new Date().getTime();
             var numberStr = 10000000000000 - dateStr
-            var databaseRef = firebase.database().ref().child("Home Posts");
+            var databaseRef = firebase.database().ref().child("Mart Posts");
             databaseRef.once("value").then(function() {
                 var name = picture["name"];
                 var dateStr = new Date().getTime();
                 var fileCompleteName = name + "_" + dateStr;
 
-                var storageRef = firebase.storage().ref("Home Image");
+                var storageRef = firebase.storage().ref("Mart Image");
                 var blogStorageRef = storageRef.child(fileCompleteName);
 
                 var uploadTask = blogStorageRef.put(picture);
@@ -178,6 +191,7 @@
                                 "name": fileCompleteName,
                                 "PostDesc": desc,
                                 "PostTitle": title,
+                                "PostNum": midtitle,
                                 "PostSubTitle": subtitle,
                                 "time": time.toLocaleString('en-US', {
                                     hours: 'numeric',
